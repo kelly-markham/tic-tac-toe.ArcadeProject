@@ -1,49 +1,72 @@
 *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;   
+}    
+body{
+    background-color: rgb(165, 156, 233);
+    height:100vh;
+}
+
+main{
+    height:100%;
+    display:flex;
+    justify-content: center;
+}
+
+
+header{
+    color:aliceblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:100px;
+    text-align: center;
 }
 
 body{
-    height:100vh;
-    color:rgb(127, 168, 255);
-    font-family: 'Space Grotesk', sans-serif;
-    background-color: rgb(186, 209, 144);
+    height: 100vh;
+    background: rgb(180, 167,225);
 }
 
-h1{
-    font-size: 50px;
-}
-
-.top{
+main{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
     align-items: center;
+    margin: 0 auto;
+}
+
+.playerEntry{
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
     flex-direction: column;
 }
 
-.buttonStart{
-    padding-top: 10px;
+.playerOne{
+    margin: 12px;
 }
 
-#gameboard{
+.playerTwo{
+    padding-top: 5px;
+}
+
+.gameButtons{
+    margin: 5px;
+}
+
+.board{
     display: flex;
+    height: 360px;
+    width: 360px;
     flex-wrap: wrap;
-    height: 500px;
-    width: 500px;
-    margin-top: 40px;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 .cell{
+    cursor: pointer;
     display: flex;
     flex-basis: 120px;
     justify-content: center;
     align-items: center;
-    font-size: 120px;
-    border-right: 2px solid;
-    border-bottom: 2px solid;
 }
 
 .cell:nth-child(3n+2){
@@ -55,3 +78,4 @@ h1{
     border-bottom: solid black 1px;
     border-top: solid black 1px;
 }
+
