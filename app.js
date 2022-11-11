@@ -68,18 +68,18 @@ const setGame = (() => {
             } else currentPlayer = player1;
         }
     };
-});
-//const isGameFinished = () => _gameFinished; //check
+}); //?????????? respond to lower return all functions comment down below
+
+const isGameFinished = () => gameOver; //check
 
 const changeMode = (newMode) => {
-    _mode = newMode;
-    _gameFinished = false;
+    gameMode = newMode;
+    gameOver = false;
 };
 
 const getMode = () => {
-    return _mode;
-}
-//  }; //check
+    return gameMode;
+}; //check
 
 const checkForWin = () => {
     let gameBoardState = gameBoard.boardState();
@@ -96,7 +96,7 @@ const checkForWin = () => {
         || (gameBoardState[2] == presentPlayer && gameBoardState[4] == presentPlayer && gameBoardState[6] == presentPlayer)
     ){
         let winnerCalled = document.querySelector('.winningGameMsg');
-        winnerCalled.textContent = `${.getCurrentPlayer().retrieveName()} is the winner!`;
+        winnerCalled.textContent = `${getCurrentPlayer().retrieveName()} is the winner!`;
         gameOver = true;
         //displayController.removeTilesEventListener();//
     };
@@ -105,5 +105,43 @@ const checkForWin = () => {
 const checkForTie = () => {
     gameBoardState = gameBoard.boardState();
     winnerCalled = document.querySelector('.winningGameMsg');
-}
+       // if (winnerCalled.textContent) //?? not sure about the tie concept
+};
 
+//playing against robot
+const vsRobot = () => {
+    let clearCells = [];
+    for (let i = 0; i < 9; i++){
+        if (gameBoardState = gameBoard.boardState() == '');{
+            clearCells.push(i);
+        }
+    }
+    return clearCells[Math.floor(Math.random() * clearCells.length)];
+};
+//!!!! return //this should return all of the factors that i inserted/created from above
+//should setGame be one big arrow function?
+
+
+const gameWorks = (() => {
+    let chooseMode = document.querySelectorAll("button[name = mode]");
+    let startGame = document.querySelector('.startButton');
+    let resetGame = document.querySelector('.resetButton');
+    let boardCells = document.querySelectorAll('.cell'); //
+
+const clickGameMode = () => {
+    for(let chosenMode of chooseMode){
+        if (chosenMode.clicked){
+            setGame.changeMode(chosenMode.value);
+            break;
+        }
+    }
+};
+
+//start button event listener
+const startGameButton = () => {
+    setGame.setPlayersName();
+    clickGameMode(); 
+}
+})();
+
+// control everything on display
