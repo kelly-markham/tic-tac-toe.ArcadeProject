@@ -70,20 +70,20 @@ const setGame = (() => {
     };
 }); //?????????? respond to lower return all functions comment down below
 
-const isGameFinished = () => gameOver; //check
+    const isGameFinished = () => gameOver; //check
 
-const changeMode = (newMode) => {
-    gameMode = newMode;
-    gameOver = false;
-};
+    const changeMode = (newMode) => {
+        gameMode = newMode;
+        gameOver = false;
+    };
 
-const getMode = () => {
-    return gameMode;
-}; //check
+    const getMode = () => {
+        return gameMode;
+    }; //check
 
-const checkForWin = () => {
-    let gameBoardState = gameBoard.boardState();
-    let presentPlayer = currentPlayer.retrieveMark();
+    const checkForWin = () => {
+        let gameBoardState = gameBoard.boardState();
+        let presentPlayer = currentPlayer.retrieveMark();
     if (
         (gameBoardState[0] == presentPlayer && gameBoardState[1] == presentPlayer && gameBoardState[2] == presentPlayer)
         || (gameBoardState[3] == presentPlayer && gameBoardState[4] == presentPlayer && gameBoardState[5] == presentPlayer)
@@ -102,14 +102,17 @@ const checkForWin = () => {
     };
 }; 
 
-const checkForTie = () => {
-    gameBoardState = gameBoard.boardState();
-    winnerCalled = document.querySelector('.winningGameMsg');
-       // if (winnerCalled.textContent) //?? not sure about the tie concept
-};
+    const checkForTie = () => {
+        gameBoardState = gameBoard.boardState();
+        winnerCalled = document.querySelector('.winningGameMsg');
+        if (winnerCalled.textContent == '' &&  gameBoardState.every((element) => element == 'x' || element == 'o')){
+            winnerCalled.textContent = 'Draw!';
+        }    
+    };
+        //?? not sure about the tie concept and .every
 
 //playing against robot
-const vsRobot = () => {
+    const vsRobot = () => {
     let clearCells = [];
     for (let i = 0; i < 9; i++){
         if (gameBoardState = gameBoard.boardState() == '');{
